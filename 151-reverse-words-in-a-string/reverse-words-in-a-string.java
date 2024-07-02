@@ -1,23 +1,29 @@
-public class Solution {
-    public String reverseWords(String s) {
-        s = s.trim();
-        
-        // Split the input string into an array of words
-        String[] words = s.split("\\s+");
-        
-        reverseArray(words);
-        
-        return String.join(" ", words);
+class Solution {
+
+
+
+public void reverse(String[] rev){
+    int l=0;
+    int r=rev.length-1;
+    while(l<r){
+        String temp=rev[r];
+        rev[r]=rev[l];
+        rev[l]=temp;
+        l++;
+        r--;
     }
-    
-    private void reverseArray(String[] arr) {
-        int left = 0, right = arr.length - 1;
-        while (left < right) {
-            String temp = arr[left];
-            arr[left] = arr[right];
-            arr[right] = temp;
-            left++;
-            right--;
-        }
+
+} 
+
+    public String reverseWords(String s) {
+        s=s.trim();
+        String []rev=s.split("\\s+");
+        
+        reverse(rev);
+
+        return String.join(" ",rev);
+
+
+
     }
 }
